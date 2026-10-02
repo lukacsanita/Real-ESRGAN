@@ -67,9 +67,10 @@ version_info = ({})
 
 
 def get_version():
+    version_data = {}
     with open(version_file, 'r') as f:
-        exec(compile(f.read(), version_file, 'exec'))
-    return locals()['__version__']
+        exec(f.read(), version_data)
+    return version_data['__version__']
 
 
 def get_requirements(filename='requirements.txt'):
